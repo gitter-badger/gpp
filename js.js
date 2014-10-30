@@ -2,35 +2,50 @@
 var scrolled;
 var header;
 var window_height;
-var calendar_offset;
+var top_offset;
+var mobile;
 
 // Functions
 function scrollActions(){
 	scrolled = $(window).scrollTop();
-	scrolled > window_height-60 ? header.addClass('white') :  header.removeClass('white');
-	$('#home').css("background-position", "center "+(0-(scrolled*.15))+'px');
+	scrolled > window_height-100 ? header.addClass('white') :  header.removeClass('white');
+	if(!mobile)
+		$('#home').css("background-position", "center "+(0-(scrolled*.15))+'px');
 }
 
 function toggleMenu(){
 	$('#relative_content').toggleClass('mobile_menu_open');
 	$('#mobile_menu').toggleClass('mobile_menu_open');
-	$('#hamburger_icon').toggleClass('as_close');
+	$('#hamburger').toggleClass('as_close');
 }
 
+function listenWidth( e ) {
+  window_height = $(window).height();
+  window_width = $(window).width();
+	topOffset();
+	mobile = $(window).width() < 1024;
+}
 
+function topOffset(){
+	if(header.is(":visible"))
+		top_offset = 60;
+	else
+		top_offset = -5;
+}
 
 // Bindings
 $(function() {
 		header = $('#header');
-		window_height = $(window).height();
-		calendar_offset = $("#calendar").offset().top - window_height;
+		listenWidth();
 
 		$(window).bind('scroll',function(e){ 
 			scrollActions();
 		});
 
+		$(document).load($(window).bind("resize", listenWidth));
+
 		$('.calendar-event-highlights').click(function(event) {
-			$(this).parent().toggleClass('active').find('.calendar-event-dt').slideToggle({duration:1000, easing:'easeOutCubic'});
+			$(this).parent().toggleClass('active').find('.calendar-event-dt').slideToggle({duration:500, easing:'easeOutCubic'});
 		});
 
 		$('.faq-item').click(function(event) {
@@ -53,7 +68,7 @@ $(function() {
 
 		$('.header-top_nav-item, .mobile_menu-item').click(function(){
 		    $('html, body').animate({
-		        scrollTop: $("#"+$.attr(this, 'rel')).offset().top - 50
+		        scrollTop: $("#"+$.attr(this, 'rel')).offset().top - top_offset
 		    }, 1000, 'easeOutCubic');
 		    return false;
 		});
@@ -64,6 +79,3 @@ $(function() {
 
 
 });
-$.attr(this, 'rel')
-
-
