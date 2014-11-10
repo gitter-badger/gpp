@@ -8,6 +8,8 @@ $light-core-color: lighten($core-color, 40%);
 $darker-core-color: #857e54;
 $contrast-color: #ffffff;
 
+$testimonials: 6;
+
 $core-font-size: 1.6rem;
 
 $content-max-width: 1300px;
@@ -322,37 +324,78 @@ ul{
 .price{
   position: absolute;
   right: 0px;
-  top:0px;
-  background-color: #fff;
-  padding: 10px;
-  color: $core-color;
-  font-size: 2.0rem;
-  @include box-shadow(3px, 3px, 0, 0, rgba(0,0,0,0.05));
-  &::after{
-    content:'';
-    position: absolute;
-    right:0;
-    bottom:-25px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 25px 25px 0;
-    border-color: transparent #fff transparent transparent;
-  }
-  &.core-bg{
-    background-color: $light-core-color;
+  top:10px;
+  &-tag{
+    width: 268px;
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+    color: $core-color;
+    font-size: 2.0rem;
+    @include box-shadow(3px, 3px, 0, 0, rgba(0,0,0,0.05));
+    text-align: center;
     &::after{
-      border-color: transparent $light-core-color transparent transparent;
+      content:'';
+      position: absolute;
+      right:0;
+      bottom:-25px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 25px 25px 0;
+      border-color: transparent #fff transparent transparent;
+    }
+    &.core-bg{
+      background-color: $light-core-color;
+      &::after{
+        border-color: transparent $light-core-color transparent transparent;
+      }
+    }
+    @media screen and (max-width: 950px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 950px) {
+      font-size: 1.5rem;
+    }
+  } 
+  &-promotion{
+    position: relative;
+    font-size: 0.9rem;
+    padding: 8px 0 3px 0;
+    margin-left: 6px;
+    color: $text-color;
+    display: inline-block;
+    @include transition;
+    &.for-guest{
+      cursor: pointer;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      &:hover{
+        padding: 8px 0 5px 0;
+      }
     }
   }
-  @media screen and (max-width: 950px),
-  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 950px) {
-    font-size: 1.5rem;
-  } 
-  @media screen and (max-width: 650px),
-  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 650px) {
-    top:-50px;
+  @media screen and (max-width: 700px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 700px) {
+    position: relative;
+    margin: auto;
+    margin: 0px auto 40px; 
+    width: 268px;
+    &-tag{
+      font-size: 2.0rem;
+      &:after{
+        content:none;
+      }
+    }
+    &-promotion{
+      display: block;
+      text-align: center;
+      margin: 0;
+      border: 0 !important;
+      text-decoration: underline;
+    }
   }   
+  @media screen and (max-width: 400px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 400px) {
+
+  }
 }
 
 strong{
@@ -798,10 +841,16 @@ strong{
 
 .testimonials{
   margin: 60px 0;
+  overflow: hidden;
+  height: 380px;
+  &-wrapper{
+    position: absolute;
+    width: 100%*$testimonials/4;
+  }
   &-item{
-    width:22%;
+    width:22%*4/$testimonials;
     float:left;
-    margin-right: 4%;
+    margin-right: 4%*4/$testimonials;
     background-color: #ffffff;
     height: 380px;
     position: relative;
@@ -882,21 +931,46 @@ strong{
         }
       }
     }
-    @media screen and (max-width: 950px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 950px) {
-      width:45%;
-      margin-right: 10%;
-      margin-bottom: 30px;
+  }
+
+  &-buttons{
+    text-align: center;
+    margin: 30px 0;
+    &-item{
+      text-align: center;
+      width:50px;
+      height: 50px;
+      display: inline-block;
+      background: #fff;
+      @include border-radius(50px);
+      padding:10px;
+      font-size: 2.0rem;
+    }
+  }
+
+  @media screen and (max-width: 950px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 950px) {
+    &-wrapper{
+      width: 100%*$testimonials/2;
+    }
+    &-item{
+      width:45%*2/$testimonials;
+      margin-right: 10%*2/$testimonials;
       &:nth-of-type(2n){
         margin-right: 0;
       }
-    }  
-    @media screen and (max-width: 550px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 550px) {
-      width:100%;
+    } 
+  } 
+  @media screen and (max-width: 550px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 550px) {
+    &-wrapper{
+      position: absolute;
+      width: 100%*$testimonials;
+    }
+    &-item{
+      width:100%/$testimonials;
       margin-right: 0;
-      margin-bottom: 30px;
-    }  
+    } 
   }
 }
 

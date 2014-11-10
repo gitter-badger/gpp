@@ -14,8 +14,10 @@
 
     <!-- SCRIPTS -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js.js" type="text/javascript"></script>
+    <script src="countUp.min.js" type="text/javascript"></script>
     <script src="jquery-ui.min.js" type="text/javascript"></script>
+    <script src="js.js" type="text/javascript"></script>
+
   </head>
   <body>
     
@@ -125,11 +127,16 @@
             <br/>
             Growth Partners Programme
           </h1>
-          <div class="price">
-            Price: <strong>£4995</strong> excl VAT
-          </div>
           <div class="align-center">
             <div class="subtitle">
+            </div>
+          </div>
+          <div class="price">
+            <div class="price-tag">
+              Price: <strong>£<span class="price-tag-value" data-price="4995" data-promo-price="3995">4,995</span></strong> excl VAT
+            </div>
+            <div class="price-promotion for-guest">
+              If you are a mamber of The Supper Club click here.
             </div>
           </div>
           <div class="cl"></div>
@@ -180,54 +187,74 @@
 
           <div class="cl"></div>
           <div class="content testimonials">
-            
-            <div class="testimonials-item">
-              <div class="testimonials-item-photo">
-                <img src="gfx/testimonial_photo.jpg" />
-              </div>
-              <div class="testimonials-item-comment">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, risus ac posuere finibus, sapien est vehicula dolor, non vulputate ex enim in tellus. Vestibulum blandit auctor odio, ac condimentum lacus rutrum dignissim.
-              </div>
-              <div class="testimonials-item-author">
-                <span>Stephan Bolkovic</span><br/>
-                <span class="b300">Exlabs Ltd.</span>
-              </div>
-            </div>
-            
-            <div class="testimonials-item">
-              <a class="testimonials-item-video">
-                <img src="gfx/testimonial_photo.jpg" />
-                <span class="testimonials-item-video-play">
-                  <img src="gfx/play.png" />
-                  <span>Hear testimonials from attenders</span>
-                </span>
-              </a>
-            </div>
-            
-            <div class="testimonials-item">
-              <div class="testimonials-item-photo">
-                <img src="gfx/testimonial_photo.jpg" />
-              </div>
-              <div class="testimonials-item-comment">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, risus ac posuere finibus, sapien est vehicula dolor, non vulputate ex enim in tellus. Vestibulum blandit auctor odio, ac condimentum lacus rutrum dignissim.
-              </div>
-              <div class="testimonials-item-author">
-                <span>Stephan Bolkovic</span><br/>
-                <span class="b300">Exlabs Ltd.</span>
-              </div>
-            </div>
-            
-            <div class="testimonials-item">
-              <a class="testimonials-item-video">
-                <img src="gfx/testimonial_photo.jpg" />
-                <span class="testimonials-item-video-play">
-                  <img src="gfx/play.png" />
-                  <span>Hear testimonials from attenders</span>
-                </span>
-              </a>
-            </div>
 
+            <div class="testimonials-wrapper">
+            
+              <div class="testimonials-item">
+                <div class="testimonials-item-photo">
+                  <img src="gfx/testimonial_photo.jpg" />
+                </div>
+                <div class="testimonials-item-comment">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, risus ac posuere finibus, sapien est vehicula dolor, non vulputate ex enim in tellus. Vestibulum blandit auctor odio, ac condimentum lacus rutrum dignissim.
+                </div>
+                <div class="testimonials-item-author">
+                  <span>Stephan Bolkovic</span><br/>
+                  <span class="b300">Exlabs Ltd.</span>
+                </div>
+              </div>
+              
+              <div class="testimonials-item">
+                <a class="testimonials-item-video">
+                  <img src="gfx/testimonial_photo.jpg" />
+                  <span class="testimonials-item-video-play">
+                    <img src="gfx/play.png" />
+                    <span>Hear testimonials from attenders</span>
+                  </span>
+                </a>
+              </div>
+              
+              <div class="testimonials-item">
+                <div class="testimonials-item-photo">
+                  <img src="gfx/testimonial_photo.jpg" />
+                </div>
+                <div class="testimonials-item-comment">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, risus ac posuere finibus, sapien est vehicula dolor, non vulputate ex enim in tellus. Vestibulum blandit auctor odio, ac condimentum lacus rutrum dignissim.
+                </div>
+                <div class="testimonials-item-author">
+                  <span>Stephan Bolkovic</span><br/>
+                  <span class="b300">Exlabs Ltd.</span>
+                </div>
+              </div>
+              
+              <div class="testimonials-item">
+                <a class="testimonials-item-video">
+                  <img src="gfx/testimonial_photo.jpg" />
+                  <span class="testimonials-item-video-play">
+                    <img src="gfx/play.png" />
+                    <span>Hear testimonials from attenders</span>
+                  </span>
+                </a>
+              </div>
+
+              <div class="testimonials-item">
+                <div class="testimonials-item-photo">
+                  <img src="gfx/testimonial_photo.jpg" />
+                </div>
+                <div class="testimonials-item-comment">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, risus ac posuere finibus, sapien est vehicula dolor, non vulputate ex enim in tellus. Vestibulum blandit auctor odio, ac condimentum lacus rutrum dignissim.
+                </div>
+                <div class="testimonials-item-author">
+                  <span>Stephan Bolkovic</span><br/>
+                  <span class="b300">Exlabs Ltd.</span>
+                </div>
+              </div>
+              <div class="cl"></div>
+            </div>
             <div class="cl"></div>
+          </div>
+          <div class="testimonials-buttons">
+            <div class="testimonials-buttons-item testimonials-buttons-item--prev">›</div>
+            <div class="testimonials-buttons-item testimonials-buttons-item--next">›</div>
           </div>
           <div class="align-center">
             <a class="button contact-action" data-action="gpp" data-action-desc="Growth Partner Programme (GPP)">Subscribe to the programme</a>
@@ -243,11 +270,16 @@
             <br/>
             Maximize Capital Value
           </h1>
-          <div class="price core-bg">
-            Price: <strong>£795</strong> excl VAT
-          </div>
           <div class="align-center">
             <div class="subtitle"></div>
+          </div>
+          <div class="price">
+            <div class="price-tag core-bg">
+              Price: <strong>£<span class="price-tag-value" data-price="795" data-promo-price="395">795</span></strong> excl VAT
+            </div>
+            <div class="price-promotion for-guest">
+              If you are a mamber of The Supper Club click here.
+            </div>
           </div>
           <div class="cl"></div>
           <div class="single_column_text auto long_text long_text--bigger">
@@ -396,7 +428,7 @@
                           <td><strong>Grand Design</strong></td>
                         </tr>
                       </table>
-                      <a class="button">Enquire</a>
+                      <a class="button contact-action" data-action="gpp" data-action-desc="Growth Partner Programme (GPP)">Enquire</a>
                     </td>
                   </tr>
                 </table>
@@ -444,7 +476,7 @@
                           <td><strong>Grand Design</strong></td>
                         </tr>
                       </table>
-                      <a class="button">Enquire</a>
+                      <a class="button contact-action" data-action="gpp" data-action-desc="Growth Partner Programme (GPP)">Enquire</a>
                     </td>
                   </tr>
                 </table>
@@ -497,7 +529,7 @@
                           <td><strong>Grand Design</strong></td>
                         </tr>
                       </table>
-                      <a class="button">Enquire</a>
+                      <a class="button contact-action" data-action="mcv" data-action-desc="Maximise Capital Value Master Class">Enquire</a>
                     </td>
                   </tr>
                 </table>
@@ -545,7 +577,7 @@
                           <td><strong>Grand Design</strong></td>
                         </tr>
                       </table>
-                      <a class="button">Enquire</a>
+                      <a class="button contact-action" data-action="mcv" data-action-desc="Maximise Capital Value Master Class">Enquire</a>
                     </td>
                   </tr>
                 </table>
@@ -593,7 +625,7 @@
                           <td><strong>Grand Design</strong></td>
                         </tr>
                       </table>
-                      <a class="button">Enquire</a>
+                      <a class="button contact-action" data-action="mcv" data-action-desc="Maximise Capital Value Master Class">Enquire</a>
                     </td>
                   </tr>
                 </table>

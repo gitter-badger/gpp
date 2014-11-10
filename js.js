@@ -89,5 +89,19 @@ $(function() {
 			toggleMenu();
 		});
 
+		$('.for-guest').click(function(event) {
+			var options = {
+			  useEasing : true, 
+			  useGrouping : true
+			}
+			$('.price-tag-value').each(function(index, el) {
+				countElement = $(this);
+				var demo = new countUp(countElement[0], countElement.data('price'), countElement.data('promo-price'), 0, 1.5);
+				demo.start();
+				$(".price-promotion").html("Special price for the members of The Supper Club.").removeClass('for-guest');
+			});
+			
+		});
+
 
 });
