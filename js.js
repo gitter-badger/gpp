@@ -33,6 +33,12 @@ function topOffset(){
 		top_offset = -5;
 }
 
+function scrollTo(element_id){
+	$('html, body').animate({
+      scrollTop: $(element_id).offset().top - top_offset
+  }, 1000, 'easeOutCubic');
+}
+
 // Bindings
 $(function() {
 		header = $('#header');
@@ -67,10 +73,16 @@ $(function() {
 		});
 
 		$('.header-top_nav-item, .mobile_menu-item').click(function(){
-		    $('html, body').animate({
-		        scrollTop: $("#"+$.attr(this, 'rel')).offset().top - top_offset
-		    }, 1000, 'easeOutCubic');
-		    return false;
+		    scrollTo("#"+$.attr(this, 'rel'));
+		   	return false;
+		});
+
+		$('.contact-action').click(function(event) {
+			scrollTo("#contact");
+			if($(this).data('action')){
+				$("#select-input").val($(this).data("action"));
+				$('#select-value').html($(this).data("action-desc"));
+			}
 		});
 
 		$('.mobile_menu-item').click(function(){
