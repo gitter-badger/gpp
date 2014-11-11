@@ -846,6 +846,8 @@ strong{
   &-wrapper{
     position: absolute;
     width: 100%*$testimonials/4;
+    @include transition;
+    left: 0%;
   }
   &-item{
     width:22%*4/$testimonials;

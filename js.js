@@ -4,6 +4,7 @@ var header;
 var window_height;
 var top_offset;
 var mobile;
+var gpp_slider_last_page;
 
 // Functions
 function scrollActions(){
@@ -23,7 +24,13 @@ function listenWidth( e ) {
   window_height = $(window).height();
   window_width = $(window).width();
 	topOffset();
-	mobile = $(window).width() < 1024;
+	mobile = window_width < 1024;
+	
+	// Calculation for sliders
+	elements_per_page = 4;
+	elements_per_page -= (window_width<950) ? 2 : 0;
+	elements_per_page -= (window_width<550) ? 1 : 0;
+	gpp_slider_last_page = Math.ceil(6/elements_per_page);
 }
 
 function topOffset(){
@@ -37,6 +44,13 @@ function scrollTo(element_id){
 	$('html, body').animate({
       scrollTop: $(element_id).offset().top - top_offset
   }, 1000, 'easeOutCubic');
+}
+
+function moveSlider(slider, direction){
+	value = (direction=="next") ? -100 : 100;
+	slider.css('left', function(){
+		return (parseInt(slider[0].style.left)+value)+"%"
+	});
 }
 
 // Bindings
@@ -100,7 +114,11 @@ $(function() {
 				demo.start();
 				$(".price-promotion").html("Special price for the members of The Supper Club.").removeClass('for-guest');
 			});
+		});
+
+		$('.testimonials-buttons-item--next').click(function(event) {
 			
+			if()
 		});
 
 
