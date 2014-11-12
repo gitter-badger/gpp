@@ -8,8 +8,6 @@ $light-core-color: lighten($core-color, 40%);
 $darker-core-color: #857e54;
 $contrast-color: #ffffff;
 
-$testimonials: 6;
-
 $core-font-size: 1.6rem;
 
 $content-max-width: 1300px;
@@ -842,17 +840,21 @@ strong{
 .testimonials{
   margin: 60px 0;
   overflow: hidden;
-  height: 380px;
+  height: 480px;
   &-wrapper{
     position: absolute;
-    width: 100%*$testimonials/4;
+    width: 100%;
     @include transition;
     left: 0%;
+    white-space: nowrap;
+    font-size: 0;
   }
   &-item{
-    width:22%*4/$testimonials;
-    float:left;
-    margin-right: 4%*4/$testimonials;
+    white-space: normal;
+    vertical-align: top;
+    width:22%;
+    display:inline-block;
+    margin-right: 4%;
     background-color: #ffffff;
     height: 380px;
     position: relative;
@@ -886,7 +888,7 @@ strong{
       padding: 20px;
       height: 180px;
       font-size: 1.4rem;
-      text-align: justify;
+      text-align: left;
       line-height: 1.6rem;
       overflow: hidden;
     }
@@ -896,6 +898,7 @@ strong{
       padding: 20px 0px;
       margin: 0 20px;
       border-top: 1px double $core-color;
+      font-size: $core-font-size;
     }
     &-video{
       display: block;
@@ -938,26 +941,46 @@ strong{
   &-buttons{
     text-align: center;
     margin: 30px 0;
+    margin-top: 420px;
     &-item{
+      position: relative;
       text-align: center;
       width:50px;
       height: 50px;
       display: inline-block;
-      background: #fff;
-      @include border-radius(50px);
       padding:10px;
       font-size: 2.0rem;
+      cursor: pointer;
+      @include transition;
+      img{
+        position: relative;
+        @include transition;
+        left:0;
+      }
+      &:hover{
+        img{
+          left:5px;
+          opacity: 0.6;
+        }
+      }
+      &--prev{
+        &:hover{
+          img{
+            left:-5px;
+          }
+        }
+      }
+      &.disabled{
+        opacity: 0.1;
+      }
     }
   }
 
   @media screen and (max-width: 950px),
   screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 950px) {
-    &-wrapper{
-      width: 100%*$testimonials/2;
-    }
     &-item{
-      width:45%*2/$testimonials;
-      margin-right: 10%*2/$testimonials;
+      width:45%;
+      margin-right: 10%;
       &:nth-of-type(2n){
         margin-right: 0;
       }
@@ -965,12 +988,8 @@ strong{
   } 
   @media screen and (max-width: 550px),
   screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 550px) {
-    &-wrapper{
-      position: absolute;
-      width: 100%*$testimonials;
-    }
     &-item{
-      width:100%/$testimonials;
+      width:100%;
       margin-right: 0;
     } 
   }
