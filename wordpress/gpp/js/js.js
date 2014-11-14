@@ -94,7 +94,10 @@ jQuery(function() {
     });
 
     jQuery('.faq-item').click(function(event) {
-      jQuery(this).toggleClass('active').find('.faq-item-anwser').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
+      isActive = jQuery(this).hasClass('active');
+      jQuery('.faq-item').removeClass('active').find('.faq-item-anwser').stop(true,true).slideUp({duration:500, easing:'easeOutCubic'});
+      if(!isActive)
+        jQuery(this).toggleClass('active').find('.faq-item-anwser').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
     });
 
     jQuery('#fake-select').click(function(event) {
@@ -113,6 +116,12 @@ jQuery(function() {
 
     jQuery('.menu-item a').click(function(){
         scrollTo(jQuery(this).attr('href'));
+        return false;
+    });
+
+    jQuery('#newsletter-button').click(function(){
+        scrollTo(jQuery(this).attr('href'));
+        jQuery('#newsletter-input').focus();
         return false;
     });
 

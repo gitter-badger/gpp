@@ -128,17 +128,17 @@ function hero_shortcode( $atts ) {
 			'heading' => 'GROWTH PARTNERS',
 			'description' => 'Designed to help entrepreneurs scale their business<br> and drive capital value',
 			'button' => 'SUBSCRIBE TO OUR PROGRAMME',
-			'facebook_url' => '#',
-			'twitter_url' => '#'
+			'linkedin_url' => 'https://www.linkedin.com/company/prelude-group',
+			'twitter_url' => 'https://twitter.com/preludegroup'
 		), $atts )
 	);
 
 	$cat_id = get_cat_ID('Event MC');
-	$args = array ( 'cat' => $cat_id, 'posts_per_page' => 1 , 'order' => 'DESC');
+	$args = array ( 'cat' => $cat_id, 'posts_per_page' => 1 , 'order' => 'ASC');
 	$mc_query = new WP_Query( $args );
 
 	$cat_id = get_cat_ID('Event GPP');
-	$args = array ( 'cat' => $cat_id, 'posts_per_page' => 1, 'order' => 'DESC' );
+	$args = array ( 'cat' => $cat_id, 'posts_per_page' => 1, 'order' => 'ASC' );
 	$gpp_query = new WP_Query( $args );
 
 	ob_start(); ?> 
@@ -188,18 +188,19 @@ function hero_shortcode( $atts ) {
     
     <div class="hero-partners">
       <h4 class="contrast-color">Driven by</h4>
-      <img src="<?php echo get_template_directory_uri()?>/gfx/supper_clud.png" />
+      <a target="_blank" href="http://www.thesupperclub.com/"><img src="<?php echo get_template_directory_uri()?>/gfx/supper_clud.png" /></a>
       <div class="hero-partners-container">
-        <img src="<?php echo get_template_directory_uri()?>/gfx/prelude.png" />
-        <img src="<?php echo get_template_directory_uri()?>/gfx/speaker.png" />
+        <a target="_blank" href="http://www.preludegroup.co.uk/"><img src="<?php echo get_template_directory_uri()?>/gfx/prelude.png" /></a>
+        <a target="_blank" href="http://www.preludegroup.co.uk/about-us/speaker-boutique/"><img src="<?php echo get_template_directory_uri()?>/gfx/speaker.png" /></a>
       </div>
     </div>
 
     <div class="hero-social">
-      <h4 class="contrast-color">Find us</h4>
+      <h4 class="contrast-color"> </h4>
+      <a href="#footer" class="hero-social-newsletter" id="newsletter-button"><span class="max_1000">Subscribe to our </span>newsletter</a>
       <div class="hero-social-container">
-        <a href="<?php echo $facebook_url ?>"><img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" /></a>
-        <a href="<?php echo $twitter_url ?>"><img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" /></a>
+        <a target="_blank" href="<?php echo $linkedin_url ?>"><img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" /></a>
+        <a target="_blank" href="<?php echo $twitter_url ?>"><img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" /></a>
       </div>
     </div>
   </div>
@@ -249,7 +250,7 @@ function button_shortcode( $atts ) {
 		array(
 			'action' => '',
 			'action_desc' => '',
-			'text' => 'SUBSCRIBE TO THE PROGRAMME'
+			'text' => 'GET IN TOUCH'
 		), $atts )
 	);
 	return "<a class='button contact-action' data-action='".$action."' data-action-desc='".$action_desc."'>".$text."</a>";
@@ -417,7 +418,7 @@ function calendar_shortcode( $atts ) {
 
 		    <?php if ( $mc_query->have_posts() ): while ( $mc_query->have_posts() ) :
         		$mc_query->the_post();
-					get_template_part( 'content', 'calendar' );
+					get_template_part( 'content', 'calendar-odd' );
 				endwhile; endif; ?>
 
 		  </div>
@@ -439,6 +440,7 @@ function faq_shortcode( $atts ) {
 	<div class='faq-item'>
 	  <div class='faq-item-question'><?php echo $question ?></div>
 	  <div class='faq-item-anwser'><?php echo $answer ?></div>
+      <img src="<?php echo get_template_directory_uri()?>/gfx/arrow_icon.png" alt="" class='faq-item-more' />
 	</div>
 	<? return ob_get_clean(); 
 }
@@ -473,7 +475,7 @@ function subscribe_shortcode( $atts , $content = null ) {
 	<div class='subscribe' id='contact'>
     <div class='subscribe-form'>
       <div class='subscribe-form-header'>
-        Contact Form
+        Get in touch
       </div>
       <?php echo do_shortcode($content) ?>
     </div>

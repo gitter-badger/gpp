@@ -3,10 +3,10 @@
  * @package gpp
  */
 ?>
-<div class="calendar-event">
+<div class="calendar-event odd">
   <div class="calendar-event-highlights">
     <img src="<?php echo get_template_directory_uri()?>/gfx/calendar_icon.png" alt="" class="calendar-event-icon" />
-    <span class="calendar-event-date">Start date:</span>
+    <span class="calendar-event-date">Date:</span>
     <span class="calendar-event-date uppercase b700"><?php the_title() ?></span>
     <img src="<?php echo get_template_directory_uri()?>/gfx/arrow_icon.png" alt="" class="calendar-event-more" />
     <div class="cl"></div>

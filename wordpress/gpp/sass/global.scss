@@ -647,7 +647,7 @@ strong{
       }
       @media screen and (max-width: 600px),
       screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 600px) {
-        font-size:4.0rem;
+        font-size:3.5rem;
       }
     }
     &-play_video{
@@ -748,7 +748,7 @@ strong{
     position: absolute;
     bottom: 5%;
     left: 5%;
-    &>img{
+    &>a{
       float:left;
     }
     h4{
@@ -758,10 +758,9 @@ strong{
     &-container{
       float:left;
       padding: 10px;
-      border: 2px solid rgba(255,255,255,0.7);
       margin: 25px 0 0 20px;
       img{
-        height: 40px;
+        height: 50px;
         margin: 0 15px;
       }
     }
@@ -773,7 +772,7 @@ strong{
           height: 30px;
         }
       }
-      &>img{
+      &>a img{
         height: 60px;
       }
       h4{
@@ -784,27 +783,54 @@ strong{
         left:-5px;
       }
     }
-    @media screen and (max-width: 600px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 600px) {
+    @media screen and (max-width: 650px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 650px) {
       display: none;
     }
   }
   &-social{
     position: absolute;
-    bottom: 5%;
+    bottom: 9%;
     right: 5%;
     text-align: center;
     h4{
       margin-bottom: 10px;
     }
     &-container{
-      padding: 10px;
+      display:inline-block;
       img{
         margin: 0 0px;
       }
     }
-    @media screen and (max-width: 600px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 600px) {
+    &-newsletter{
+      display:inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+      padding: 15px;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      font-weight: 700;
+      border: 2px solid #fff;
+      color:#fff;
+      margin-top: 7px;
+      @include transition;
+      &:hover{
+        @include box-shadow(0px, 0px, 15px, 5px, rgba(0,0,0,0.1));
+        color:#fff;
+      }
+    }
+    @media screen and (max-width: 1000px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 1000px) {
+      .max_1000{
+        display:none;
+      }
+    }
+    @media screen and (max-width: 850px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 850px) {
+      bottom: 6%;
+    }
+    @media screen and (max-width: 650px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 650px) {
       position: static;
       width:100%;
       margin-top: 150px;
@@ -1052,6 +1078,7 @@ strong{
       margin-top:8px;
       margin-right: 5px;
       @include transition;
+      @include rotate(-270deg);
     }
     &-highlights{
       cursor: pointer;
@@ -1085,7 +1112,15 @@ strong{
     }
     &.active{
       .calendar-event-more{
-        @include rotate(90deg);
+        @include rotate(-90deg);
+      }
+    }
+    &.odd{
+      background-color: transparentize($darker-core-color,0.2);
+      color:white;
+      .button{
+        background-color: #fff;
+        color: $core-color;
       }
     }
   }
@@ -1110,6 +1145,8 @@ strong{
     padding:20px 0;
     border-top: 1px solid transparentize($core-color,0.7);
     cursor: pointer;
+    position: relative;
+    padding-right: 40px;
     &:last-of-type{
       border-bottom: 1px solid transparentize($core-color,0.7);
     }
@@ -1134,10 +1171,21 @@ strong{
         color:$core-color;
       }
     }
+    &-more{
+      position: absolute;
+      right:10px;
+      top: 18px;
+      @include transition;
+      @include rotate(-270deg);
+      width: 20px;
+    }
     &.active{
       .faq-item-question{
         font-weight: 700;
         color: $text-color;
+      }
+      .faq-item-more{
+        @include rotate(-90deg);
       }
     }
   }
@@ -1307,11 +1355,15 @@ strong{
   background: $core-color;
   color: #fff;
   font-size: 1.8rem;
+  a{
+    color:#fff;
+  }
   @media screen and (max-width: 1065px),
   screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 1065px) {
    font-size:1.6rem;
   }
   &-partners{
+    margin-bottom: 24px;
     img{
       height: 70px;
       margin-right: 20px;
@@ -1382,6 +1434,9 @@ strong{
       }
       &:last-of-type{
         margin-right: 0;
+      }
+      a{
+        color:#fff;
       }
     }
   }

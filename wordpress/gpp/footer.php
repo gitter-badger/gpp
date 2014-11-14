@@ -7,7 +7,7 @@
  * @package gpp
  */
 ?>
-      <footer class="footer">
+      <footer class="footer" id="footer">
         <div class="content">
           <div class="fifty-five-box right footer-content-box">
             <div class="thirty-box padding10 left footer-contact-box">
@@ -16,32 +16,23 @@
               </div>
             </div>
             <div class="seventy-box padding10 right footer-newsletter">
-              <input class="footer-newsletter-input" type="text" placeholder="Your e-mail"/>
+              <input class="footer-newsletter-input" type="text" id="newsletter-input" placeholder="Signup to our newsletter"/>
               <button class="footer-newsletter-button" type="submit">Send</button>
             </div>
             <div class="cl"></div>
-            <div class="thirty-three-box padding10 left footer-contact-box">
-              <div class="footer-header">
-                Our address
-              </div>
-              <br/>
-              Some Custom 65<br/>
-              Address, 45U AM
-            </div>
             <div class="fourty-box padding10 left footer-contact-box">
               <div class="footer-header">
-                Call us
+                Contact us
               </div>
               <br/>
-              Emma Jane<br/>
+              <a href="mailto:getintouch@growthprogrammes.com">getintouch@growthprogrammes.com</a>
+              <br/>
               <div class="f29 very-strong">
-                0045-659-98-98
+                0845 359 9888
               </div>
             </div>
-            <div class="twenty-five-box padding10 left align-right footer-contact-box">
-              <div class="footer-header">
-                Find Us
-              </div>
+            <div class="twenty-five-box padding10 right align-right footer-contact-box">
+              <div class="footer-header"> </div>
               <br/>
               <div class="footer-social">
                 <img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" />
@@ -51,9 +42,23 @@
           </div>
           <div class="fourty-box left footer-content-box">
             <div class="footer-partners">
+              <img src="<?php echo get_template_directory_uri()?>/gfx/supper_clud.png" />
               <img src="<?php echo get_template_directory_uri()?>/gfx/prelude.png" />
               <img src="<?php echo get_template_directory_uri()?>/gfx/speaker.png" />
-              <img src="<?php echo get_template_directory_uri()?>/gfx/supper_clud.png" />
+            </div>
+            <div class="half-box padding10 left footer-contact-box">
+              <div class="footer-header">
+                Our address
+              </div>
+              <br/>
+              Third Floor, 12-15 Bermondsey Square, Southwark, London, SE1 3UN
+            </div>
+            <div class="half-box padding10 left footer-contact-box">
+              <div class="footer-header">
+                registered office
+              </div>
+              <br/>
+              TWP, The Old Rectory, Church Street, Weybridge, Surrey, KT13 8DE
             </div>
           </div>
           <div class="cl"></div>
@@ -61,19 +66,19 @@
         <div class="content">
           <div class="fourty-box left footer-content-box">
             <div class="footer-copyrights  align-right">
-              Copyright 2013-2014 by Growth Partners Porty. All rights reseverd.<br/>
-              Registration No. 4161814 | VAT registration 769712094
+              Registration No. 4161814 | VAT registration 769712094 | 
+              © 2014 Growth Programmes. All Rights Reserved 
             </div>
           </div>
           <div class="fifty-five-box right footer-content-box">
             <div class="footer-copyrights">
               <ul class="footer-menu">
-                <li>Blog</li>
-                <li>Meet the team</li>
-                <li>Terms & Conditions</li>
-                <li>Privacy Policy</li>
-                <li>Cookies</li>
-                <li>Sitemap</li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/news/">Blog</a></li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/contact-us/the-supper-club-team/">Meet the team</a></li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/terms-and-conditions/">Terms & Conditions</a></li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/privacy-and-cookies/">Privacy Policy</a></li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/privacy-and-cookies/">Cookies</a></li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/site-map/">Sitemap</a></li>
               </ul>
             </div>
           </div>
