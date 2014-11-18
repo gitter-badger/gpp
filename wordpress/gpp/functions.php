@@ -178,7 +178,7 @@ function hero_shortcode( $atts ) {
             </div>
             <div class="cl"></div>
             <div class="hero-main_content-events-hr"></div>
-            <a class="button contact-action"><?php echo $button ?></a>
+            <a class="button" id="find_out_more"><?php echo $button ?></a>
           </div>
         </div>
       </div>

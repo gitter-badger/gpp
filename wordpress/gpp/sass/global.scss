@@ -215,6 +215,13 @@ ul{
   padding-left: 30px;
 }
 
+a>img{
+  @include transition;
+  &:hover{
+    opacity: 0.6;
+  }
+}
+
 
 .content{
   max-width: $content-max-width;
@@ -623,7 +630,7 @@ strong{
   background-attachment:fixed;
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto 120%;
+  background-size: cover;
   &-main_content{
     width:90%;
     max-width: 1200px;
@@ -811,7 +818,7 @@ strong{
       font-size: 1.4rem;
       font-weight: 700;
       border: 2px solid #fff;
-      color:#fff;
+      color:#fff !important;
       margin-top: 7px;
       @include transition;
       &:hover{
@@ -1034,7 +1041,7 @@ strong{
   background-attachment:fixed;
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto 150%;
+  background-size: cover;
   strong{
     font-weight: 700;
   }
@@ -1212,7 +1219,7 @@ strong{
   background-attachment:fixed;
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto 130%;
+  background-size: cover;
   padding: 100px 0;
   &-form{
     margin:auto;
@@ -1371,9 +1378,13 @@ strong{
       screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 1150px) {
        height:50px;
       }
+      @media screen and (max-width: 900px),
+      screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 900px) {
+       height:40px;
+      }
     }
-    @media screen and (max-width: 970px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 970px) {
+    @media screen and (max-width: 850px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 850px) {
      text-align:center;
      padding-top: 30px;
      border-top: 1px solid transparentize($light-core-color,0.7); 
@@ -1395,6 +1406,7 @@ strong{
      font-size:1.6rem;
     }
   }
+
   &-social{
     img{
       @media screen and (max-width: 1180px),
@@ -1403,6 +1415,9 @@ strong{
        max-width: 50px;
       }
     }
+  }
+  &-office{
+    font-size: 1.5rem;
   }
   &-copyrights{
     margin-top: 20px;
@@ -1486,29 +1501,32 @@ strong{
       border: 0px;
       text-transform: uppercase;
     }
-    @media screen and (max-width: 550px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 550px) {
+    @media screen and (max-width: 1050px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 1050px) {
       width:100%;
       margin-bottom: 20px;
     }
 
   }
-  @media screen and (max-width: 970px),
-  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 970px) {
+  @media screen and (max-width: 850px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 850px) {
    .footer-content-box{
     width:100%;
     margin-bottom: 20px;
    }
-  .footer-contact-box{
-    width:100%;
-    margin-bottom: 20px;
-    text-align: center;
-    .footer-header{
-      width: 100%;
-      display: block;
+  }
+  @media screen and (max-width: 520px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 520px) {
+    .footer-contact-box{
+      width:100%;
+      margin-bottom: 20px;
       text-align: center;
+      .footer-header{
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
     }
-   }
   }
 }
 
@@ -1548,4 +1566,24 @@ input[type=submit] {
   margin-left: auto;
   margin-right: auto;
   vertical-align: middle;
+}
+
+div.wpcf7-response-output{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid rgba(73, 184, 49, 0.73);
+  padding: 10px;
+  text-align: center;
+  color: rgba(60, 60, 60, 1);
+}
+
+
+div.wpcf7-mail-sent-ok{
+  border: 1px solid rgba(73, 184, 49, 0.73);
+}
+
+div.wpcf7-validation-errors{
+  border: 2px solid rgba(247, 0, 0, 0.43)
 }

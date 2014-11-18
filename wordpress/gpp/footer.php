@@ -26,8 +26,7 @@
               </div>
               <br/>
               <a href="mailto:getintouch@growthprogrammes.com">getintouch@growthprogrammes.com</a>
-              <br/>
-              <div class="f29 very-strong">
+              <div class="f29 very-strong margin-top-quarter">
                 0845 359 9888
               </div>
             </div>
@@ -35,25 +34,25 @@
               <div class="footer-header"> </div>
               <br/>
               <div class="footer-social">
-                <img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" />
-                <img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" />
+                <a target="_blank" href="https://www.linkedin.com/company/prelude-group"><img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" />
+                <a target="_blank" href="https://twitter.com/preludegroup"><img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" />
               </div>
             </div>
           </div>
           <div class="fourty-box left footer-content-box">
             <div class="footer-partners">
-              <img src="<?php echo get_template_directory_uri()?>/gfx/supper_clud.png" />
-              <img src="<?php echo get_template_directory_uri()?>/gfx/prelude.png" />
-              <img src="<?php echo get_template_directory_uri()?>/gfx/speaker.png" />
+              <a target="_blank" href="http://www.thesupperclub.com/"><img src="<?php echo get_template_directory_uri()?>/gfx/supper_clud.png" /></a>
+              <a target="_blank" href="http://www.preludegroup.co.uk/"><img src="<?php echo get_template_directory_uri()?>/gfx/prelude.png" /></a>
+              <a target="_blank" href="http://www.preludegroup.co.uk/about-us/speaker-boutique/"><img src="<?php echo get_template_directory_uri()?>/gfx/speaker.png" /></a>
             </div>
-            <div class="half-box padding10 left footer-contact-box">
+            <div class="half-box padding10 left footer-contact-box footer-office">
               <div class="footer-header">
                 Our address
               </div>
               <br/>
               Third Floor, 12-15 Bermondsey Square, Southwark, London, SE1 3UN
             </div>
-            <div class="half-box padding10 left footer-contact-box">
+            <div class="half-box padding10 left footer-contact-box footer-office">
               <div class="footer-header">
                 registered office
               </div>

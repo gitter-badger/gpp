@@ -21,6 +21,12 @@ function toggleMenu(){
   jQuery('#hamburger').toggleClass('as_close');
 }
 
+function closeMenu(){
+  jQuery('#relative_content').removeClass('mobile_menu_open');
+  jQuery('#mobile_menu').removeClass('mobile_menu_open');
+  jQuery('#hamburger').removeClass('as_close');
+}
+
 function listenWidth( e ) {
   window_height = jQuery(window).height();
   window_width = jQuery(window).width();
@@ -116,9 +122,14 @@ jQuery(function() {
 
     jQuery('.menu-item a').click(function(){
         scrollTo(jQuery(this).attr('href'));
+        closeMenu();
         return false;
     });
 
+    jQuery('#find_out_more').click(function(){
+        scrollTo('#gpp');
+        return false;
+    });
     jQuery('#newsletter-button').click(function(){
         scrollTo(jQuery(this).attr('href'));
         jQuery('#newsletter-input').focus();
@@ -167,4 +178,6 @@ jQuery(function() {
 
     jQuery('.testimonials-item-video').fancybox();
 
+    jQuery(".calendar-event").first().toggleClass('active').find('.calendar-event-dt').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
+    jQuery(".calendar-event.odd").first().toggleClass('active').find('.calendar-event-dt').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
 });
