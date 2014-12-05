@@ -16,8 +16,7 @@
               </div>
             </div>
             <div class="seventy-box padding10 right footer-newsletter">
-              <input class="footer-newsletter-input" type="text" id="newsletter-input" placeholder="Signup to our newsletter"/>
-              <button class="footer-newsletter-button" type="submit">Send</button>
+              <a class="footer-newsletter-button" id="footer-newsletter-button"><img src="<?php echo get_template_directory_uri()?>/gfx/envelope.png" /> Signup to our newsletter</a>
             </div>
             <div class="cl"></div>
             <div class="fourty-box padding10 left footer-contact-box">
@@ -34,8 +33,8 @@
               <div class="footer-header"> </div>
               <br/>
               <div class="footer-social">
-                <a target="_blank" href="https://www.linkedin.com/company/prelude-group"><img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" />
-                <a target="_blank" href="https://twitter.com/preludegroup"><img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" />
+                <a target="_blank" href="https://www.linkedin.com/company/the-supper-club"><img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" />
+                <a target="_blank" href="https://twitter.com/thesupperclubuk"><img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" />
               </div>
             </div>
           </div>

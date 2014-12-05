@@ -7,6 +7,15 @@ var mobile;
 var gpp_slider_last_page;
 var mvc_slider_last_page;
 
+var mailTo = {}
+mailTo["gpp"] = "t.hurst@preludegroup.co.uk";
+mailTo["mcv"] = "g.roberts@preludegroup.co.uk";
+mailTo["bp"] = "ej.packe@preludegroup.co.uk";
+mailTo["newsletter"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
+mailTo["ge"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
+mailTo["se"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
+
+
 // Functions
 function scrollActions(){
   scrolled = jQuery(window).scrollTop();
@@ -106,14 +115,17 @@ jQuery(function() {
         jQuery(this).toggleClass('active').find('.faq-item-anwser').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
     });
 
-    jQuery('#fake-select').click(function(event) {
+    jQuery('.subscribe-form-fake_select-select').click(function(event) {
       jQuery(this).next().stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
     });
 
-    jQuery('#fake-select-options .subscribe-form-fake_select-options-option').click(function(event) {
+    jQuery('.subscribe-form-fake_select-options-option').click(function(event) {
       jQuery(this).parent().stop(true,true).slideUp({duration:200, easing:'easeOutCubic'});
-      jQuery("#select-input").val(jQuery(this).data("value"));
-      jQuery('#select-value').html(jQuery(this).html());
+      select = jQuery(this).parents('.subscribe-form-fake_select');
+      select.find('input.hidden').val(jQuery(this).data("value"));
+      select.find('.subscribe-form-fake_select-select span').html(jQuery(this).html()).addClass("selected");
+      if(select.attr('id')=='purpose_select')
+        jQuery('#send_to').val(mailTo[jQuery(this).data("value")]);
     });
 
     jQuery('#hamburger, #close').click(function(event) {
@@ -130,17 +142,24 @@ jQuery(function() {
         scrollTo('#gpp');
         return false;
     });
-    jQuery('#newsletter-button').click(function(){
-        scrollTo(jQuery(this).attr('href'));
-        jQuery('#newsletter-input').focus();
+    jQuery('#newsletter-button, #footer-newsletter-button').click(function(){
+        scrollTo("#contact");
+        jQuery("#title-select-input").val("newsletter");
+        jQuery('#title-select-value').html(jQuery('.subscribe-form-fake_select-options-option[data-value="newsletter"]').html()).addClass("selected");
+        jQuery('#send_to').val(mailTo['newsletter']);
         return false;
+    });
+
+    jQuery("#title-select-input").change(function(event) {
+      alert("onchange");
     });
 
     jQuery('.contact-action').click(function(event) {
       scrollTo("#contact");
       if(jQuery(this).data('action')){
-        jQuery("#select-input").val(jQuery(this).data("action"));
-        jQuery('#select-value').html(jQuery('.subscribe-form-fake_select-options-option[data-value="'+jQuery(this).data("action")+'"]').html());
+        jQuery("#title-select-input").val(jQuery(this).data("action"));
+        jQuery('#title-select-value').html(jQuery('.subscribe-form-fake_select-options-option[data-value="'+jQuery(this).data("action")+'"]').html()).addClass("selected");
+        jQuery('#send_to').val(mailTo[jQuery(this).data("action")]);
       }
     });
 
@@ -157,7 +176,7 @@ jQuery(function() {
         countElement = jQuery(this);
         var demo = new countUp(countElement[0], countElement.data('price'), countElement.data('promo-price'), 0, 1.5);
         demo.start();
-        jQuery(".price-promotion").html("Special price for the members of The Supper Club.").removeClass('for-guest');
+        jQuery(".price-promotion").html("The Supper Club member rate").removeClass('for-guest');
       });
     });
 
