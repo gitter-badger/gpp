@@ -27,7 +27,7 @@
               <br/>
               <a href="mailto:getintouch@growthprogrammes.com">getintouch@growthprogrammes.com</a>
               <div class="f29 very-strong margin-top-quarter">
-                0845 359 9888
+                0845&nbsp;359&nbsp;9888
               </div>
             </div>
             <div class="twenty-five-box padding10 right align-right footer-contact-box">
@@ -75,9 +75,7 @@
                 <li><a target="_blank" href="http://www.thesupperclub.com/news/">Blog</a></li>
                 <li><a target="_blank" href="http://www.thesupperclub.com/contact-us/the-supper-club-team/">Meet the team</a></li>
                 <li><a target="_blank" href="http://www.thesupperclub.com/terms-and-conditions/">Terms & Conditions</a></li>
-                <li><a target="_blank" href="http://www.thesupperclub.com/privacy-and-cookies/">Privacy Policy</a></li>
-                <li><a target="_blank" href="http://www.thesupperclub.com/privacy-and-cookies/">Cookies</a></li>
-                <li><a target="_blank" href="http://www.thesupperclub.com/site-map/">Sitemap</a></li>
+                <li><a target="_blank" href="http://www.thesupperclub.com/privacy-and-cookies/">Privacy & Cookies</a></li>
               </ul>
             </div>
           </div>

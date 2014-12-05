@@ -128,8 +128,8 @@ function hero_shortcode( $atts ) {
 			'heading' => 'GROWTH PARTNERS',
 			'description' => 'Designed to help entrepreneurs scale their business<br> and drive capital value',
 			'button' => 'SUBSCRIBE TO OUR PROGRAMME',
-			'linkedin_url' => 'https://www.linkedin.com/company/prelude-group',
-			'twitter_url' => 'https://twitter.com/preludegroup'
+			'linkedin_url' => 'https://www.linkedin.com/company/the-supper-club',
+			'twitter_url' => 'https://twitter.com/thesupperclubuk'
 		), $atts )
 	);
 
@@ -161,7 +161,7 @@ function hero_shortcode( $atts ) {
               <div class="right hero-main_content-events-date">
 								<?php if ( $gpp_query->have_posts() ): while ( $gpp_query->have_posts() ) :
 					        		$gpp_query->the_post();
-									the_title();
+									echo date("d / m / Y", strtotime(get_field("date")));
 								endwhile; endif; wp_reset_query(); ?>
               </div>
             </div>
@@ -172,7 +172,7 @@ function hero_shortcode( $atts ) {
               <div class="right hero-main_content-events-date">
                 <?php if ( $mc_query->have_posts() ): while ( $mc_query->have_posts() ) :
 					        		$mc_query->the_post();
-									the_title();
+									echo date("d / m / Y", strtotime(get_field("date")));
 								endwhile; endif; wp_reset_query(); ?>
               </div>
             </div>
@@ -197,7 +197,7 @@ function hero_shortcode( $atts ) {
 
     <div class="hero-social">
       <h4 class="contrast-color"> </h4>
-      <a href="#footer" class="hero-social-newsletter" id="newsletter-button"><span class="max_1000">Subscribe to our </span>newsletter</a>
+      <a href="#footer" class="hero-social-newsletter" id="newsletter-button"><img src="<?php echo get_template_directory_uri()?>/gfx/envelope.png" /> Subscribe</a>
       <div class="hero-social-container">
         <a target="_blank" href="<?php echo $linkedin_url ?>"><img src="<?php echo get_template_directory_uri()?>/gfx/linkedin.png" /></a>
         <a target="_blank" href="<?php echo $twitter_url ?>"><img src="<?php echo get_template_directory_uri()?>/gfx/twitter.png" /></a>
@@ -262,7 +262,7 @@ function price_shortcode( $atts ) {
 		array(
 			'price' => '',
 			'price2' => '',
-			'text' => 'If ou are a member of The Supper Club click here.',
+			'text' => 'View The Supper Club member rate.',
 			'class' => ''
 		), $atts )
 	);
