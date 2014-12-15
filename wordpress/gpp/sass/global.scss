@@ -74,6 +74,7 @@ $content-max-width: 1300px;
 
 html { 
   font-size: 62.5%; 
+  height:100%;
 } 
 
 body{
@@ -83,6 +84,7 @@ body{
   color: $text-color;
   font-size: $core-font-size;
   font-weight: 300;
+  height: 100%;
 }
 
 div{
@@ -371,8 +373,8 @@ a>img{
     color: $text-color;
     display: inline-block;
     &.for-guest{
-      font-size: 1.2rem;
-      letter-spacing: .5px;
+      font-size: 1.1rem;
+      letter-spacing: .2px;
       cursor: pointer;
       border-bottom: 1px solid rgba(0,0,0,0.2);
       &:hover{
@@ -529,6 +531,7 @@ strong{
 .relative_content{
   position: relative;
   left:0;
+  height: 100%;
   @include transition;
   &::after{
     content: '';
@@ -625,6 +628,7 @@ strong{
 
 .hero{
   position: relative;
+  min-height: 100%;
   min-height: 100vh;
   width: 100%;
   background-color: rgba(255,255,255,.2);
@@ -633,6 +637,28 @@ strong{
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
+  &-video{
+    position: absolute; 
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow: hidden;
+    height: 100%;
+    video{
+      min-height: 100%;
+      min-width: 100%;
+      display: block;
+    }
+    &-tint{
+      position: absolute; 
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background-color: transparentize($core-color,0.6);
+    }
+  }
   &-main_content{
     width:90%;
     max-width: 1200px;
@@ -747,7 +773,9 @@ strong{
     @media screen and (max-width: 600px),
     screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 600px) {
       position: relative;
-      top: 94px;
+      padding-top: 94px;
+      padding-bottom: 30px;
+      top:0;
       left:0;
       margin:auto;
       @include translate(0, 0);
@@ -845,10 +873,12 @@ strong{
     }
     @media screen and (max-width: 650px),
     screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 650px) {
-      position: static;
       width:100%;
-      margin-top: 150px;
-      padding-bottom:20px;
+      right:0;
+    }
+    @media screen and (max-height: 620px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-height : 620px) {
+      display:none;
     }
   }
 }
@@ -1020,6 +1050,38 @@ strong{
       }
     }
   }
+
+  @media screen and (max-width: 1300px) and (min-width: 950px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 1300px) and (min-width: 950px) {
+    &-item{
+      height:420px;
+      &-comment{
+        height: 220px;
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+      }
+      &-author{
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+      }
+    }
+  } 
+
+  @media screen and (max-width: 700px) and (min-width: 550px),
+  screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 700px) and (min-width: 550px) {
+    &-item{
+      height:420px;
+      &-comment{
+        height: 220px;
+        font-size: 1.3rem;
+        line-height: 1.4rem;
+      }
+      &-author{
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+      }
+    }
+  } 
 
   @media screen and (max-width: 950px),
   screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 950px) {

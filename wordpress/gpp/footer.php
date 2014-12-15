@@ -24,7 +24,7 @@
                 Contact us
               </div>
               <br/>
-              <a href="mailto:getintouch@growthprogrammes.com">getintouch@growthprogrammes.com</a>
+              <a href="mailto:hello@growthprogrammes.com">hello@growthprogrammes.com</a>
               <div class="f29 very-strong margin-top-quarter">
                 0845&nbsp;359&nbsp;9888
               </div>
@@ -64,6 +64,7 @@
         <div class="content">
           <div class="fourty-box left footer-content-box">
             <div class="footer-copyrights  align-right">
+              Part of the Prelude Group<br/>
               Registration No. 4161814 | VAT registration 769712094 | 
               © 2014 Growth Programmes. All Rights Reserved 
             </div>

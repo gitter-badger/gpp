@@ -142,6 +142,15 @@ function hero_shortcode( $atts ) {
 	$gpp_query = new WP_Query( $args );
 
 	ob_start(); ?> 
+  <div class="hero-video" id="hero_video"></div>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+        if(!(jQuery(window).width() < 600 || jQuery(window).height() < 400)){
+            jQuery('#hero_video').html('<video id="mainVideo" autoplay loop style="margin-left: 0px;" poster="<?php echo get_template_directory_uri()?>/gfx/bg1.jpg"><source src="<?php echo get_template_directory_uri()?>/gfx/main.mp4" type="video/mp4"><source src="<?php echo get_template_directory_uri()?>/gfx/main.webm" type="video/webm"><source src="<?php echo get_template_directory_uri()?>/gfx/main.ogg" type="video/ogg"><img src="<?php echo get_template_directory_uri()?>/gfx/bg1.jpg" alt=""></video><div class="hero-video-tint"></div>');
+            video = jQuery('#mainVideo');
+        }
+    });    
+  </script>
 	<div class="hero-main_content">
       <div class="hero-main_content-main_title"><?php echo $heading ?></div>
       <div class="vertical-align-middle">
@@ -262,7 +271,7 @@ function price_shortcode( $atts ) {
 		array(
 			'price' => '',
 			'price2' => '',
-			'text' => 'View The Supper Club member rate.',
+			'text' => 'Click for The Supper Club member rate',
 			'class' => ''
 		), $atts )
 	);

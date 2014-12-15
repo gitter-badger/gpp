@@ -6,6 +6,7 @@ var top_offset;
 var mobile;
 var gpp_slider_last_page;
 var mvc_slider_last_page;
+var video = null;
 
 var mailTo = {}
 mailTo["gpp"] = "t.hurst@preludegroup.co.uk";
@@ -15,6 +16,15 @@ mailTo["newsletter"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
 mailTo["ge"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
 mailTo["se"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
 
+function fitVideo(vid) {
+  if ( jQuery(vid).width() >= jQuery(vid).parent().width() ) {
+    var difference = jQuery(vid).width() - jQuery(vid).parent().width();
+    // alert("vid width: "+jQuery(vid).width()+" parent width: "+jQuery(vid).parent().width()+" difference: "+difference);
+    jQuery(vid).css("margin-left", "-"+difference/2+"px");
+  } else {
+    jQuery(vid).css("margin-left", "auto");
+  }
+};
 
 // Functions
 function scrollActions(){
@@ -39,6 +49,7 @@ function closeMenu(){
 function listenWidth( e ) {
   window_height = jQuery(window).height();
   window_width = jQuery(window).width();
+  fitVideo(video);
   topOffset();
   mobile = window_width < 1024;
   // Calculation for sliders
@@ -53,6 +64,12 @@ function sliderRepaint(slider, type){
   elements_per_page -= (window_width<550) ? 1 : 0;
   elements_volume = slider.find('.testimonials-item').length;
   slider_last_page = Math.ceil(elements_volume/elements_per_page);
+  if(elements_volume == 0)
+    slider.parent().hide();
+  if(elements_volume <= elements_per_page)
+    slider.next().hide();
+  else
+    slider.next().show();
   if(old_slider_last_page!=slider_last_page){
     slider.css('left','0%');
     slider.data("active", 1);
@@ -93,6 +110,8 @@ function moveSlider(slider, direction){
     slider.next().find('.testimonials-buttons-item--next').removeClass('disabled');
 }
 
+
+
 // Bindings
 jQuery(function() {
     header = jQuery('#header');
@@ -103,6 +122,13 @@ jQuery(function() {
     });
 
     jQuery(document).load(jQuery(window).bind("resize", listenWidth));
+
+    jQuery(window).load(function(){
+      fitVideo(video);
+      setTimeout(function(){
+        fitVideo(video);
+      },400);
+    });
 
     jQuery('.calendar-event-highlights').click(function(event) {
       jQuery(this).parent().toggleClass('active').find('.calendar-event-dt').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
@@ -193,6 +219,14 @@ jQuery(function() {
         return false;
       }
       moveSlider(slider,"prev");
+    });
+
+    jQuery("#contact form").submit(function(e){
+      if(jQuery("#title-select-input").val()=="newsletter")
+        jQuery('#send_confirmation_to').val(jQuery("#email_input").val());
+      else
+        jQuery('#send_confirmation_to').val("");
+
     });
 
     jQuery('.testimonials-item-video').fancybox();
