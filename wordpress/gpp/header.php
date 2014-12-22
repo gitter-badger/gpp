@@ -14,10 +14,10 @@
     <title><?php wp_title( '|', true, 'right' ); ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- FONTS -->
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri()?>/gfx/favicon.png">
+    
+     <!-- FONTS -->
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7447712/771406/css/fonts.css" />
-
 
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -46,10 +46,12 @@
         </div>
       </div>
 
-      <header class="header" id="header">
+      <?php if(is_front_page()) { ?>
+        <header class="header" id="header">
         <?php wp_nav_menu(array(
           'container'=> 'nav',
           'menu_id' =>'',
           'menu_class' =>'header-top_nav',
           'theme_location' => 'primary' )); ?>
-      </header>
+        </header>
+      <?php } ?>

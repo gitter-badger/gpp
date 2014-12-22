@@ -16,6 +16,18 @@ mailTo["newsletter"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
 mailTo["ge"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
 mailTo["se"] = "f.ayoub@preludegroup.co.uk, c.york@preludegroup.co.uk";
 
+var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+
+
+// Functions
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 function fitVideo(vid) {
   if ( jQuery(vid).width() >= jQuery(vid).parent().width() ) {
     var difference = jQuery(vid).width() - jQuery(vid).parent().width();
@@ -26,7 +38,6 @@ function fitVideo(vid) {
   }
 };
 
-// Functions
 function scrollActions(){
   scrolled = jQuery(window).scrollTop();
   scrolled > window_height-100 ? header.addClass('white') :  header.removeClass('white');
@@ -127,7 +138,7 @@ jQuery(function() {
       fitVideo(video);
       setTimeout(function(){
         fitVideo(video);
-      },400);
+      },800);
     });
 
     jQuery('.calendar-event-highlights').click(function(event) {
@@ -229,8 +240,16 @@ jQuery(function() {
 
     });
 
-    jQuery('.testimonials-item-video').fancybox();
+    if(iOS)
+      jQuery('#home, #calendar, #contact').addClass('ios'); 
 
+    if (getParameterByName('set')=='subscribe'){
+      jQuery("#title-select-input").val("newsletter");
+      jQuery('#title-select-value').html(jQuery('.subscribe-form-fake_select-options-option[data-value="newsletter"]').html()).addClass("selected");
+      jQuery('#send_to').val(mailTo['newsletter']);     
+    }
+
+    jQuery('.testimonials-item-video').fancybox();
     jQuery(".calendar-event").first().toggleClass('active').find('.calendar-event-dt').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
     jQuery(".calendar-event.odd").first().toggleClass('active').find('.calendar-event-dt').stop(true,true).slideToggle({duration:500, easing:'easeOutCubic'});
 });

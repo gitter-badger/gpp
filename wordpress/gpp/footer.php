@@ -7,6 +7,14 @@
  * @package gpp
  */
 ?>
+
+<?php 
+  if(is_front_page())
+    $id = 'id="footer-newsletter-button"'; 
+  else
+    $id = ''; 
+?>
+
       <footer class="footer" id="footer">
         <div class="content">
           <div class="fifty-five-box right footer-content-box">
@@ -16,7 +24,7 @@
               </div>
             </div>
             <div class="seventy-box padding10 right footer-newsletter">
-              <a class="footer-newsletter-button" id="footer-newsletter-button"><img src="<?php echo get_template_directory_uri()?>/gfx/envelope.png" /> Signup to our newsletter</a>
+              <a <?php echo($id); ?> href="/?set=subscribe#contact" target="_blank" class="footer-newsletter-button"><img src="<?php echo get_template_directory_uri()?>/gfx/envelope.png" /> Signup to our newsletter</a>
             </div>
             <div class="cl"></div>
             <div class="fourty-box padding10 left footer-contact-box">

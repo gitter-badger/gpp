@@ -145,7 +145,7 @@ function hero_shortcode( $atts ) {
   <div class="hero-video" id="hero_video"></div>
   <script type="text/javascript">
     jQuery(document).ready(function(){
-        if(!(jQuery(window).width() < 600 || jQuery(window).height() < 400)){
+        if(!(jQuery(window).width() < 600 || jQuery(window).height() < 400 || iOS)){
             jQuery('#hero_video').html('<video id="mainVideo" autoplay loop style="margin-left: 0px;" poster="<?php echo get_template_directory_uri()?>/gfx/bg1.jpg"><source src="<?php echo get_template_directory_uri()?>/gfx/main.mp4" type="video/mp4"><source src="<?php echo get_template_directory_uri()?>/gfx/main.webm" type="video/webm"><source src="<?php echo get_template_directory_uri()?>/gfx/main.ogg" type="video/ogg"><img src="<?php echo get_template_directory_uri()?>/gfx/bg1.jpg" alt=""></video><div class="hero-video-tint"></div>');
             video = jQuery('#mainVideo');
         }
@@ -477,14 +477,15 @@ function subscribe_shortcode( $atts , $content = null ) {
 	extract( shortcode_atts(
 		array(
 			'author' => '',
-			'from' => ''
+			'from' => '',
+            'header_text' => 'Get in touch'
 		), $atts )
 	);
 	ob_start(); ?> 
 	<div class='subscribe' id='contact'>
     <div class='subscribe-form'>
       <div class='subscribe-form-header'>
-        Get in touch
+        <?php echo $header_text ?>
       </div>
       <?php echo do_shortcode($content) ?>
     </div>

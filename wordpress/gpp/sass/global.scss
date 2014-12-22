@@ -771,7 +771,9 @@ strong{
       }
     }
     @media screen and (max-width: 600px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 600px) {
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 600px),
+    screen and (max-height: 600px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-height : 600px) {
       position: relative;
       padding-top: 94px;
       padding-bottom: 30px;
@@ -820,8 +822,8 @@ strong{
         left:-5px;
       }
     }
-    @media screen and (max-width: 650px),
-    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 650px) {
+    @media screen and (max-width: 700px),
+    screen and (-webkit-min-device-pixel-ratio: 2) and (max-width : 700px) {
       display: none;
     }
   }
@@ -1663,4 +1665,9 @@ div.wpcf7-validation-errors{
     top:0;
     right: 0;
   }
+}
+
+.ios{
+  background-attachment: scroll !important;
+  background-size: auto 100%;
 }
